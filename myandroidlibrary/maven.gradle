@@ -1,0 +1,16 @@
+//打包到本地Maven
+apply plugin: 'maven'
+
+//打包到本地Maven：设置maven deploy
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //设置插件的GAV参数
+            pom.groupId = 'com.xq.myandroidlibrary'
+            pom.artifactId = 'myandroidlibrary'
+            pom.version = '1.0.0'
+            //文件发布到下面目录
+            repository(url: uri('../repo'))
+        }
+    }
+}
